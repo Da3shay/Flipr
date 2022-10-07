@@ -17,8 +17,8 @@ const handleChange = (event) => {
 }
 const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('/input', inputs).then(function(response){
-        console.log(response.data);
+    axios.post('http://localhost:80/Flipr-/api/login/', inputs).then(function(response){
+        console.log(response.data,"okdsawndn");
     });
 }
   return (
@@ -39,7 +39,7 @@ const handleSubmit = (event) => {
               <div className="field">
                 <div className="email_label">Email ID</div>
                 <input
-                name="username"
+                name="email"
                 onChange={handleChange}
                   placeholder="Enter your email address"
                   className="email"
