@@ -1,0 +1,75 @@
+.home{
+    background-image: linear-gradient(90deg, #F44383 0%, #7583FE 100%);
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    position: absolute;
+}
+.login_block{
+    width: fit-content;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    margin-top: 8rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+
+}
+.left_login{
+    padding: 2rem;
+}
+.right_login{
+    margin-right: 10rem;
+}
+.Heading{
+    margin-top: 5rem;
+    margin-bottom: 0rem;
+}
+.miniHeading{
+    margin-top: 0rem;
+}
+.loginform{
+    margin-top: 2rem;
+}
+.email_label{
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+
+}
+.pass_label{
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+}
+.email{
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #606060;
+
+}
+.password{
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #606060;
+}
+.field{
+    margin: 30px 0;
+}
+.buttonn{
+    width: 110%;
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
+    background-color: #7583FE;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+}
+.buttonn:hover{
+    cursor: pointer;
+}
