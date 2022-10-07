@@ -17,7 +17,7 @@ const handleChange = (event) => {
 }
 const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:80/Flipr-/api/login/', inputs).then(function(response){
+    axios.post('http://localhost:80/Flipr/api/login/', inputs).then(function(response){
         console.log(response.data,"okdsawndn");
     });
 }
