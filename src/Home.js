@@ -3,11 +3,26 @@ import "./Home.scss";
 import { Egress, gmail, lock } from "./Assets/image";
 import Admin from "./Admin";
 import { BrowserRouter as Router, Routes , Route, Link } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
 
-const login = () => {};
+
 
 export default function Home() {
+    const [inputs, setInputs] = useState([]);
+const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}));
+}
+const handleSubmit = (event) => {
+    event.preventDefault();
+    axios.post('http://localhost:3000/api/login.php/', inputs).then(function(response){
+        console.log(response.data);
+    });
+}
   return (
+
 
       <div className="home">
         <div className="login_block">
@@ -20,21 +35,27 @@ export default function Home() {
             <div className="miniHeading">
               Please enter your egress account details
             </div>
-            <form className="loginform">
+            <form className="loginform" onClick={handleSubmit}>
               <div className="field">
                 <div className="email_label">Email ID</div>
                 <input
+                name="username"
+                onChange={handleChange}
                   placeholder="Enter your email address"
                   className="email"
                 />
               </div>
               <div className="field">
                 <div className="pass_label">Password</div>
-                <input placeholder="Enter your password" className="password" />
+                <input
+                name="password"
+                onChange={handleChange} 
+                placeholder="Enter your password"
+                 className="password" />
               </div>
               <Link to="/Admin">
                 <div className="field">
-                  <button className="buttonn" onClick={login}>
+                  <button className="buttonn" >
                     Log In
                   </button>
                 </div>
