@@ -49,6 +49,7 @@ const handleSubmit = (event) => {
                 <div className="pass_label">Password</div>
                 <input
                 name="password"
+                type="password"
                 onChange={handleChange} 
                 placeholder="Enter your password"
                  className="password" />
