@@ -9,7 +9,7 @@ import { useState } from "react";
 
 
 export default function Home() {
-    const [inputs, setInputs] = useState([]);
+const [inputs, setInputs] = useState([]);
 const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -17,7 +17,7 @@ const handleChange = (event) => {
 }
 const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:3000/api/login.php/', inputs).then(function(response){
+    axios.post('/input', inputs).then(function(response){
         console.log(response.data);
     });
 }
