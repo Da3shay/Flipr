@@ -30,9 +30,10 @@ switch($method) {
         break;
     case "POST":
         $user = json_decode( file_get_contents('php://input') );
-        $sql = "INSERT INTO users(id, name, email, contact, department, password, status,join_date) VALUES(null, :name, :email, :contact, :department, :password, null, :join_date)";
+        $sql = "INSERT INTO users(id, type, name, email, contact, department, password, status,join_date) VALUES(null, :type, :name, :email, :contact, :department, :password, null, :join_date)";
         $stmt = $conn->prepare($sql);
         $join_date = date('Y-m-d');
+        $stmt->bindParam(':type', $user->type);
         $stmt->bindParam(':name', $user->name);
         $stmt->bindParam(':email', $user->email);
         $stmt->bindParam(':contact', $user->contact);
@@ -67,7 +68,7 @@ switch($method) {
         break;
 
     case "DELETE":
-        $sql = "DELETE FROM users WHERE id = :id";
+        $sql = "UPDATE users SET status= 'inactive' WHERE id = :id";
         $path = explode('/', $_SERVER['REQUEST_URI']);
 
         $stmt = $conn->prepare($sql);
