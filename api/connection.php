@@ -1,6 +1,7 @@
 <?php
-
+date_default_timezone_set("Asia/Kolkata");
 	class connection {
+		
 		private $server = 'localhost';
 		private $dbname = 'flipr';
 		private $user = 'root';
