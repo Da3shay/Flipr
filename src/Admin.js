@@ -28,7 +28,7 @@ export default function Admin() {
           <div className="listTitle">Recent users added</div>
           <Table />
         </div>
-          <div style={{width:"100%"}}><Chart /></div>
+          <div style={{width:"100%", marginTop:"25px"}}><Chart /></div>
         </div>
         
       </div>

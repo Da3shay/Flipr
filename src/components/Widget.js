@@ -5,6 +5,8 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import FreeBreakfastIcon from '@mui/icons-material/FreeBreakfast';
 import WorkIcon from '@mui/icons-material/Work';
 import GroupsIcon from '@mui/icons-material/Groups';
+import axios from "axios";
+import { useState,useEffect } from "react";
 
 const Widget = ({ type }) => {
   let data;
@@ -12,6 +14,18 @@ const Widget = ({ type }) => {
   //temporary
   const amount = 100;
   const diff = 20;
+
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+      getUsers();
+  }, []);
+  function getUsers() {
+      axios.get('http://localhost:80/Flipr/api/admin_dash/').then(function(response) {
+          console.log(response.data);
+          setUsers(response.data,);
+      });
+  }
+
 
   switch (type) {
     case "user":
@@ -61,7 +75,7 @@ const Widget = ({ type }) => {
       break;
     case "balance":
       data = {
-        title: "Average meeting hours",
+        title: "Average meeting hours  ",
         isMoney: true,
         link: "",
         icon: (
@@ -84,7 +98,7 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {data.isMoney && "$"} {amount}
+          {users.user_count}
         </span>
         <span className="link">{data.link}</span>
       </div>
