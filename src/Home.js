@@ -5,10 +5,14 @@ import Admin from "./Admin";
 import { BrowserRouter as Router, Routes , Route, Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 
 
 
 export default function Home() {
+ const navigate=useNavigate();
 const [inputs, setInputs] = useState([]);
 const handleChange = (event) => {
     const name = event.target.name;
@@ -17,8 +21,26 @@ const handleChange = (event) => {
 }
 const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:80/Flipr/api/login/', inputs).then(function(response){
+    axios.post('http://localhost:80/Flipr/api/login/', inputs).then(function(response)
+    {
         console.log(response.data,"okdsawndn");
+        if(response.data)
+        {
+          navigate('/Admin');
+
+        }
+        else{
+          alert("Wrong login credentials") 
+
+        }
+       
+       
+      
+        
+    })
+    .catch(function (error) {
+      console.log(error);
+      alert("Wrong login credentials") 
     });
 }
   return (
@@ -35,7 +57,7 @@ const handleSubmit = (event) => {
             <div className="miniHeading">
               Please enter your egress account details
             </div>
-            <form className="loginform" onClick={handleSubmit}>
+            <form className="loginform" onSubmit={handleSubmit}>
               <div className="field">
                 <div className="email_label">Email ID</div>
                 <input
@@ -54,13 +76,13 @@ const handleSubmit = (event) => {
                 placeholder="Enter your password"
                  className="password" />
               </div>
-              <Link to="/Admin">
+              {/* <Link to="/Admin"> */}
                 <div className="field">
-                  <button className="buttonn" >
+                  <button type="submit"className="buttonn" >
                     Log In
                   </button>
                 </div>
-              </Link>
+              {/* </Link> */}
             </form>
           </div>
         </div>
