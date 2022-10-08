@@ -8,7 +8,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import axios from "axios";
 import { useState,useEffect } from "react";
 
-const Widget = ({ type }) => {
+const Widget = ( props ) => {
   let data;
 
   //temporary
@@ -27,12 +27,13 @@ const Widget = ({ type }) => {
   }
 
 
-  switch (type) {
+  switch (props.type) {
     case "user":
       data = {
         title: "All Employees",
         isMoney: false,
         link: "See all Employees",
+       
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -49,6 +50,7 @@ const Widget = ({ type }) => {
         title: "Average work hours",
         isMoney: false,
         link: "",
+      
         icon: (
           <WorkIcon
             className="icon"
@@ -62,11 +64,13 @@ const Widget = ({ type }) => {
       break;
     case "earning":
       data = {
-        title: "Average break hours",
+        title: "Average meeting hours ",
         isMoney: true,
         link: "",
+        
         icon: (
-          <FreeBreakfastIcon
+          < GroupsIcon
+          
             className="icon"
             style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
           />
@@ -75,11 +79,12 @@ const Widget = ({ type }) => {
       break;
     case "balance":
       data = {
-        title: "Average meeting hours  ",
+        title:"Average break hours " ,
         isMoney: true,
         link: "",
+        
         icon: (
-          <GroupsIcon
+          <FreeBreakfastIcon
             className="icon"
             style={{
               backgroundColor: "rgba(128, 0, 128, 0.2)",
@@ -98,7 +103,7 @@ const Widget = ({ type }) => {
       <div className="left">
         <span className="title">{data.title}</span>
         <span className="counter">
-          {users.user_count}
+          {Math.trunc(props.dataa)}
         </span>
         <span className="link">{data.link}</span>
       </div>

@@ -1,15 +1,19 @@
 import React from 'react'
-import './profile.scss'
-import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
+import Navbar from './components/Navbar'
+import Datatable from './components/Datatable'
 
-export default function Profile() {
+
+export default function Users() {
   return (
     <div>
     <div className="Profile">
     <Sidebar />
     <div className="Profilecontainer">
       <Navbar />
+      <Datatable/>
+
+
       
 
     </div>
