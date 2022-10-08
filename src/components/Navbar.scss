@@ -1,0 +1,109 @@
+.navbar {
+    height: 50px;
+    border-bottom: 0.5px solid rgb(231, 228, 228);
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+  
+    .wrapper {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+  
+      .items {
+        display: flex;
+        align-items: center;
+        .item {
+          display: flex;
+          align-items: center;
+          margin-right: 20px;
+          position: relative;
+          cursor: pointer;
+  
+          .icon {
+            font-size: 20px;
+          }
+  
+          .avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+  
+          .counter {
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+          }
+        }
+      }
+    }
+  }
+  .dropbtn {
+    background-color: inherit;
+    color: white; 
+    
+    font-size: 16px;
+    border: none;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+
+  }
+  
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    background-color: white;
+   right: -10px;
+    
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 8px 16px 8px 8px; 
+    text-decoration: none;
+    display: block;
+  }
+  
+
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+
+  .dropdown:hover .dropdown-content {display: block;}
+  
+
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+.linkk{
+  color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
