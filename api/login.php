@@ -26,3 +26,4 @@ switch($method) {
         
         break;
 }
+?>
