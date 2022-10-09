@@ -16,7 +16,7 @@ switch($method) {
         if(isset($path[4]) && is_numeric($path[4])) {
             $today=date("Y-m-d");
             $yesterday=date("Y-m-d", strtotime("-1 days"));
-            $sql2="SELECT SUM(duration), type, date from tasks where emp_id=:emp_id GROUP BY date,type ORDER BY date DESC LIMIT 7";
+            $sql2="SELECT SUM(duration) as time, type, date from tasks where emp_id=:emp_id GROUP BY date,type ORDER BY date DESC LIMIT 7";
             $stmt2 = $conn->prepare($sql2);
             $stmt2->bindParam(':emp_id', $path[4]);
            // $stmt2->bindParam(':date', $today);
