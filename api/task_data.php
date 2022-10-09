@@ -27,10 +27,11 @@ switch($method) {
        
         $result=array();
         for($i=0;$i<7;$i++){
+            $result[$i]["name"]="Day ".($i+1);
             $result[$i]["label"]=date("Y-m-d", strtotime(-$i." days"));;
             $result[$i]["work"]=0;
             $result[$i]["break"]=0;
-            $result[$i]["meet"]=0;
+            $result[$i]["meeting"]=0;
         }
         
         foreach($users2 as $key=>$value){
