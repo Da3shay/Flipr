@@ -24,6 +24,7 @@ function getUsers() {
     });
 }
 
+
   const actionColumn = [
     {
       field: "action",
@@ -32,7 +33,7 @@ function getUsers() {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/Viewprofile" style={{ textDecoration: "none" }}>
+            <Link to="/Viewprofile"  style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
             <div
@@ -50,7 +51,7 @@ function getUsers() {
     <div className="datatable">
       <div className="datatableTitle">
         Add New User
-        <Link to="/users/new" className="link">
+        <Link to="/NewUser" className="link">
           Add New
         </Link>
       </div>
