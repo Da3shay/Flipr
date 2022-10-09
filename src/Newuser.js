@@ -94,7 +94,7 @@ export default function Newuser() {
               <div className="formInput">
                 <label>Type</label>
                 <select id="cars" name="type"  onChange={handleChange}>
-                  <option value="admin">Admin</option>
+                  <option value="admin" selected>Admin</option>
                   <option value="employee"> Employee</option>
                 </select>
               </div>

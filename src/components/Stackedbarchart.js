@@ -3,53 +3,54 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 
 const data = [
   {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: 'Day 1',
+    Meeting: 4000,
+    Break: 2400,
+    Work: 2400,
   },
   {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: 'Day 2',
+    Meeting: 3000,
+    Break: 1398,
+    Work: 2210,
   },
   {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: 'Day 3',
+    Meeting: 2000,
+    Break: 9800,
+    Work: 2290,
   },
   {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    name: 'Day 4',
+    Meeting: 2780,
+    Break: 3908,
+    Work: 2000,
   },
   {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: 'Day 5',
+    Meeting: 1890,
+    Break: 4800,
+    Work: 2181,
   },
   {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    name: 'Day 6',
+    Meeting: 2390,
+    Break: 3800,
+    Work: 2500,
   },
   {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: 'Day 7  ',
+    Meeting: 3490,
+    Break: 4300,
+    Work: 2100,
   },
 ];
 
 export default class Example extends PureComponent {
   static demoUrl = 'https://codesandbox.io/s/stacked-bar-chart-s47i2';
 
-  render() {
+  render(props) {
+    console.log(this.props,"dsdsds")
     return (
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
@@ -68,9 +69,9 @@ export default class Example extends PureComponent {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="pv" stackId="a" fill="#8884d8" />
-          <Bar dataKey="uv" stackId="a" fill="#82ca9d" />
-          <Bar dataKey="uv" stackId="a" fill="#000" />
+          <Bar dataKey="Break" stackId="a" fill="#8884d8" />
+          <Bar dataKey="Meeting" stackId="a" fill="#82ca9d" />
+          <Bar dataKey="Work" stackId="a" fill="#000" />
         </BarChart>
       </ResponsiveContainer>
     );
