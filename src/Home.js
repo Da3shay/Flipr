@@ -26,9 +26,21 @@ export default function Home() {
       .then(function (response) {
       
         if (response.data) {
-          navigate("/Admin");
           localStorage.setItem('id', response.data.id);
-        } else {  
+        if(response.data.type==="admin")
+        {
+          navigate("/Admin");
+         
+
+        }
+        else if(response.data.type==="employee")
+        {
+          navigate("/Employee");
+        
+        }
+     
+      } 
+        else {  
           alert("Wrong login credentials");
         }
       })

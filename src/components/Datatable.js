@@ -4,7 +4,7 @@ import { userColumns, userRows } from "../datatablesource";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from "axios";
-
+import Single from "../Single";
 
 const Datatable = () => {
   // const [data, setData] = useState(userRows);
@@ -39,8 +39,9 @@ function getUsers() {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/Viewprofile"  style={{ textDecoration: "none" }}>
+            <Link to="/Viewprofile" state={{id:params.row.id}} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
+              {/* <div style={{display:"none"}}><Single id={params.row.id}/></div> */}
             </Link>
             <div
               className="deleteButton"
