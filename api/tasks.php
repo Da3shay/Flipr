@@ -25,5 +25,25 @@ switch($method) {
         }
         echo json_encode($users2);
         break;
+        case "POST":
+            $user = json_decode( file_get_contents('php://input') );
+            $sql = "INSERT INTO tasks(id, emp_id, type, description, start_time, duration, date) VALUES(null, :emp_id, :type, :desc, :start, :duration, :date)";
+            $stmt = $conn->prepare($sql);
+            $date = date('Y-m-d');
+            $stmt->bindParam(':type', $user->type);
+            $stmt->bindParam(':emp_id', $user->emp_id);
+            $stmt->bindParam(':desc', $user->desc);
+            $stmt->bindParam(':start', $user->start);
+            $stmt->bindParam(':duration', $user->duration);
+            $stmt->bindParam(':date', $date);
+    
+            if($stmt->execute()) {
+                $response = ['status' => 1, 'message' => 'Record created successfully.'];
+            } else {
+                $response = ['status' => 0, 'message' => 'Failed to create record.'];
+            }
+            echo json_encode($response);
+            break;
+    
 }
 ?>
