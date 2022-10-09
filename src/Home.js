@@ -24,8 +24,7 @@ export default function Home() {
     axios
       .post("http://localhost:80/Flipr/api/login/", inputs)
       .then(function (response) {
-        console.log(response.data, "okdsawndn");
-        console.log(tempdata);
+      
         if (response.data) {
           navigate("/Admin");
           localStorage.setItem('id', response.data.id);
@@ -34,7 +33,7 @@ export default function Home() {
         }
       })
       .catch(function (error) {
-        console.log(error);
+     
         alert("Wrong login credentials");
       });
   };

@@ -25,7 +25,7 @@ const Navbar = () => {
           />
             </button>
             <div class="dropdown-content">
-              <a href="#">   <Link to="/Profile" style={{ textDecoration: "none"}}  className="linkk" onClick={logout}>Profile </Link></a>
+              <a href="#">   <Link to="/Profile" style={{ textDecoration: "none"}}  className="linkk">Profile </Link></a>
                <a href="#" >  <Link to="/" style={{ textDecoration: "none"}}  className="linkk" onClick={logout}> Log Out </Link></a> 
             </div>
           </div>
