@@ -11,7 +11,13 @@ const Datatable = () => {
   const [data, setdata] = useState([]);
 
   const handleDelete = (id) => {
-    setdata(data.filter((item) => item.id !== id));
+  
+    axios.delete(`http://localhost:80/Flipr/api/users/${id}`).then(function(response){
+      console.log(response.data);
+      getUsers();
+  });
+
+    
   };
 
   useEffect(() => {
