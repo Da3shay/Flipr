@@ -38,7 +38,6 @@ switch($method) {
             $stmt->bindParam(':start', $user->start);
             $stmt->bindParam(':duration', $user->duration);
             $stmt->bindParam(':date', $user->date);
-    
             if($stmt->execute()) {
                 $response = ['status' => 1, 'message' => 'Record created successfully.'];
             } else {
