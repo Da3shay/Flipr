@@ -6,13 +6,10 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-
 export default function Home() {
-
   const navigate = useNavigate();
   const [inputs, setInputs] = useState([]);
-  const [userdata, setuserdata] = useState(0); 
+  const [userdata, setuserdata] = useState(0);
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -20,32 +17,22 @@ export default function Home() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:80/Flipr/api/login/", inputs)
+    axios.get(`https://egress.000webhostapp.com/login1.php/${inputs.email}/${inputs.password}`)
+    
       .then(function (response) {
-      
         if (response.data) {
-          localStorage.setItem('id', response.data.id);
-        if(response.data.type==="admin")
-        {
-          navigate("/admin");
-         
-
-        }
-        else if(response.data.type==="employee")
-        {
-          navigate("/employee");
-        
-        }
-     
-      } 
-        else {  
+          localStorage.setItem("id", response.data.id);
+          if (response.data.type === "admin") {
+            navigate("/admin");
+          } else if (response.data.type === "employee") {
+            navigate("/employee");
+          }
+        } else {
           alert("Wrong login credentials");
         }
       })
       .catch(function (error) {
-     
-        alert("Wrong login credentials");
+        alert("Internal server error");
       });
   };
   return (

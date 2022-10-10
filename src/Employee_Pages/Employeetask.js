@@ -18,7 +18,7 @@ export default function Newuser() {
   var yyyy = today.getFullYear();
 
   today = yyyy + "-" + mm + "-" + dd;
-  console.log(today, "todayyyyyyyyyyyyyyy");
+
 
   const title = "Add New Task ";
   const inputs = [
@@ -59,11 +59,11 @@ export default function Newuser() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(userdata, "dsdsdsasasasasdes");
+    
     axios
-      .post(`http://localhost:80/Flipr/api/tasks/${id}`, userdata)
+      .post(`https://egress.000webhostapp.com/tasks.php/${id}`,JSON.stringify(userdata))
       .then(function (response) {
-        console.log(response, "dsdsdsdes");
+       
         if (response.status == 200) {
           alert("Task added Successfully ");
           navigate("/employee");

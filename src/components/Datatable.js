@@ -12,20 +12,18 @@ const Datatable = () => {
 
   const handleDelete = (id) => {
   
-    axios.delete(`http://localhost:80/Flipr/api/users/${id}`).then(function(response){
-      console.log(response.data);
+    axios.get(`https://egress.000webhostapp.com/user_delete.php/${id}`).then(function(response){
+     
       getUsers();
-  });
-
-    
+  }); 
   };
 
   useEffect(() => {
     getUsers();
 }, []);
 function getUsers() {
-    axios.get(`http://localhost:80/Flipr/api/users`).then(function(response) {
-        console.log(response.data,"Daljsya");
+    axios.get(`https://egress.000webhostapp.com/users.php`).then(function(response) {
+        
         setdata(response.data);
     });
 }
@@ -57,7 +55,7 @@ function getUsers() {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-       Your Tasks
+      All Employees
         <Link to="/admin/addemployee" className="link">
           Add New
         </Link>

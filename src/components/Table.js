@@ -7,18 +7,18 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import axios from "axios";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const List = () => {
-  
   const [users, setUsers] = useState([]);
   useEffect(() => {
-      getUsers();
+    getUsers();
   }, []);
   function getUsers() {
-      axios.get('http://localhost:80/Flipr/api/users/').then(function(response) {
-          console.log(response.data);
-          setUsers(response.data);
+    axios
+      .get("https://egress.000webhostapp.com/users.php/")
+      .then(function (response) {
+        setUsers(response.data);
       });
   }
 
@@ -29,19 +29,15 @@ const List = () => {
           <TableRow>
             <TableCell className="tableCell">Employee ID</TableCell>
             <TableCell className="tableCell">Employee Name</TableCell>
-        
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.slice(0,5).map((row) => (
+          {users.slice(0, 5).map((row) => (
             <TableRow key={row.id}>
               <TableCell className="tableCell">{row.id}</TableCell>
               <TableCell className="tableCell">
-                <div className="cellWrapper">
-                  {row.name}
-                </div>
+                <div className="cellWrapper">{row.name}</div>
               </TableCell>
-            
             </TableRow>
           ))}
         </TableBody>

@@ -13,8 +13,8 @@ export default class Example extends PureComponent {
       { name: 'Meeting Time', value: Math.trunc(this.props.piedata[2]) },
     
     ];
-    console.log(Math.trunc(this.props.piedata[0]),"piedata  ")
-    
+   
+   
     return (
       <ResponsiveContainer width="100%" height="100%">
         <PieChart width={400} height={400}>

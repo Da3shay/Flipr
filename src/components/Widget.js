@@ -20,8 +20,8 @@ const Widget = ( props ) => {
       getUsers();
   }, []);
   function getUsers() {
-      axios.get('http://localhost:80/Flipr/api/admin_dash/').then(function(response) {
-          console.log(response.data);
+      axios.get('https://egress.000webhostapp.com/admin_dash.php/').then(function(response) {
+       
           setUsers(response.data,);
       });
   }

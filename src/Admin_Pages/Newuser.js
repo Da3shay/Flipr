@@ -71,11 +71,10 @@ export default function Newuser() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(userdata, "dsdsdsasasasasdes");
     axios
-      .post("http://localhost:80/Flipr/api/users", userdata)
+      .post("https://egress.000webhostapp.com/users.php", JSON.stringify(userdata))
       .then(function (response) {
-        console.log(response.status, "dssssssssssdsdsdes");
+       
         if (response.status == 200) {
           alert("User added Successfully ");
           navigate("/admin");

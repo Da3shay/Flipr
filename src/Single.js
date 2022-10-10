@@ -23,17 +23,17 @@ useEffect(() => {
   getdata();
 }, []);
 function getUsers() {
-  axios.get(`http://localhost:80/Flipr/api/users/${profile.id}`).then(function(response) {
+  axios.get(`https://egress.000webhostapp.com/users.php/${profile.id}`).then(function(response) {
       
       setUsers(response.data);
   });
 }
 
 function getdata() {
-  axios.get(`http://localhost:80/Flipr/api/task_data/${profile.id}`).then(function(response) {
+  axios.get(`https://egress.000webhostapp.com/task_data.php/${profile.id}`).then(function(response) {
   if(response.data){
-    console.log(response.data,"main chack")
     setuserdataa(response.data);
+    console.log(response.data,"response.data");
 
   } 
   else{
@@ -48,7 +48,7 @@ function getdata() {
 
   return (
     <div className="single">
-      {console.log(userdataa,"asasas")}
+     
       <Sidebar />
       <div className="singleContainer">
         <Navbar />

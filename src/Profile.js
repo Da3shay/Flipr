@@ -15,7 +15,7 @@ export default function Profile() {
       getUsers();
   }, []);
   function getUsers() {
-      axios.get(`http://localhost:80/Flipr/api/users/${id}`).then(function(response) {
+      axios.get(`https://egress.000webhostapp.com/users.php/${id}`).then(function(response) {
 
           setUsers(response.data);
       });

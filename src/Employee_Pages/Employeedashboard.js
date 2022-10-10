@@ -12,7 +12,7 @@ import Chartprofilethree from "../components/Chartprofilethree";
 
 const Single = () => {
   const profile= parseInt(localStorage.getItem('id'));
-  console.log(profile,"dsdfdjsjdsjdsd")
+ 
 const [users, setUsers] = useState([]);
 const [userdataa, setuserdataa] = useState();
 
@@ -23,16 +23,16 @@ useEffect(() => {
   getdata();
 }, []);
 function getUsers() {
-  axios.get(`http://localhost:80/Flipr/api/users/${profile}`).then(function(response) {
+  axios.get(`https://egress.000webhostapp.com/users.php/${profile}`).then(function(response) {
       
       setUsers(response.data);
   });
 }
 
 function getdata() {
-  axios.get(`http://localhost:80/Flipr/api/task_data/${profile}`).then(function(response) {
+  axios.get(`https://egress.000webhostapp.com/task_data.php/${profile}`).then(function(response) {
   if(response.data){
-    console.log(response.data,"main chack")
+   
     setuserdataa(response.data);
 
   } 
@@ -48,7 +48,7 @@ function getdata() {
 
   return (
     <div className="single">
-      {console.log(userdataa,"asasas")}
+      
       <Sidebar2 />
       <div className="singleContainer">
         <Navbar />

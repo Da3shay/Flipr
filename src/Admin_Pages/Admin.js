@@ -27,26 +27,26 @@ export default function Admin() {
      
   }, []);
   function getUsers() {
-      axios.get('http://localhost:80/Flipr/api/admin_dash/').then(function(response) {
+      axios.get('https://egress.000webhostapp.com/admin_dash.php/').then(function(response) {
          
           setUsers(response.data.user_count);
       });
   }
 
   function getworkhours() {
-    axios.get('http://localhost:80/Flipr/api/admin_dash/').then(function(response) {
+    axios.get('https://egress.000webhostapp.com/admin_dash.php/').then(function(response) {
        
         setworhour(response.data.Avg_work);
     });
 }
 function getmeetinghours() {
-  axios.get('http://localhost:80/Flipr/api/admin_dash/').then(function(response) {
+  axios.get('https://egress.000webhostapp.com/admin_dash.php/').then(function(response) {
       
       setmeetinghour(response.data.Avg_meet);
   });
 }
 function getbreakhours() {
-  axios.get('http://localhost:80/Flipr/api/admin_dash/').then(function(response) {
+  axios.get('https://egress.000webhostapp.com/admin_dash.php/').then(function(response) {
    
       setbreakhour(response.data.Avg_break);
   });

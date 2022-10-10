@@ -15,17 +15,15 @@ const Datatable = () => {
   }, []);
   function getUsers() {
     axios
-      .get(`http://localhost:80/Flipr/api/tasks/${id}`)
+      .get(`https://egress.000webhostapp.com/tasks.php/${id}`)
       .then(function (response) {
-        console.log(response.data, "Daljsya");
         setdata(response.data);
       });
   }
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:80/Flipr/api/tasks/${id}`)
+      .get(`https://egress.000webhostapp.com/task_delete.php/${id}`)
       .then(function (response) {
-        console.log(response.data);
         getUsers();
       });
   };
