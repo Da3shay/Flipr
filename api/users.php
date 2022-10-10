@@ -13,6 +13,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 switch($method) {
     case "GET":
         $status="active";
+        $type="employee";
         $sql = "SELECT * FROM users";
         $path = explode('/', $_SERVER['REQUEST_URI']);
         if(isset($path[4]) && is_numeric($path[4])) {
@@ -23,9 +24,10 @@ switch($method) {
             $stmt->execute();
             $users = $stmt->fetch(PDO::FETCH_ASSOC);
         } else {
-            $sql .= " WHERE status=:status";
+            $sql .= " WHERE status=:status and type=:type";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':status',$status);
+            $stmt->bindParam(':type',$type);
             $stmt->execute();
             $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
