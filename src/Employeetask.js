@@ -45,7 +45,7 @@ export default function Newuser() {
         id: 5,
         type: "hidden",
         name:"emp_id",
-        value:{id}
+        value:id
       },
       {
         id: 6,
