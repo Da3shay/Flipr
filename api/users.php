@@ -36,14 +36,14 @@ switch($method) {
         $user = json_decode( file_get_contents('php://input') );
         $sql = "INSERT INTO users(id, type, name, email, contact, department, password,join_date) VALUES(null, :type, :name, :email, :contact, :department, :password, :join_date)";
         $stmt = $conn->prepare($sql);
-        $join_date = date('Y-m-d');
+        //$join_date = date('Y-m-d');
         $stmt->bindParam(':type', $user->type);
         $stmt->bindParam(':name', $user->name);
         $stmt->bindParam(':email', $user->email);
         $stmt->bindParam(':contact', $user->contact);
         $stmt->bindParam(':department', $user->department);
         $stmt->bindParam(':password', $user->password);
-        $stmt->bindParam(':join_date', $join_date);
+        $stmt->bindParam(':join_date', $user->join_date);
 
         if($stmt->execute()) {
             $response = ['status' => 1, 'message' => 'Record created successfully.'];
