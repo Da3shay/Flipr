@@ -12,10 +12,6 @@ export default function Users() {
     <div className="Profilecontainer">
       <Navbar />
       <Datatable/>
-
-
-      
-
     </div>
   </div>
   </div>

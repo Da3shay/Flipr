@@ -5,18 +5,20 @@ import "./employeetask.scss";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Newuser() {
+  const navigate = useNavigate();
   const [file, setFile] = useState("");
   const id = parseInt(localStorage.getItem("id"));
- const [userdata, setuserdata] = useState([]);
- var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
+  const [userdata, setuserdata] = useState([]);
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
 
-today = yyyy + '-' + mm + '-' + dd;
-console.log(today,"todayyyyyyyyyyyyyyy")
+  today = yyyy + "-" + mm + "-" + dd;
+  console.log(today, "todayyyyyyyyyyyyyyy");
 
   const title = "Add New Task ";
   const inputs = [
@@ -25,15 +27,15 @@ console.log(today,"todayyyyyyyyyyyyyyy")
       label: "Start Date ",
       type: "date",
       placeholder: "John Doe",
-      name:"date",
-      max:today
+      name: "date",
+      max: today,
     },
     {
       id: 2,
       label: "Start Time",
       type: "time",
       placeholder: "johndoe@gmail.com",
-      name:"start"
+      name: "start",
     },
     {
       id: 3,
@@ -41,15 +43,14 @@ console.log(today,"todayyyyyyyyyyyyyyy")
       type: "text",
       id: "datePickerId",
       placeholder: "",
-      name:"duration"
+      name: "duration",
     },
     {
       id: 4,
       label: "Description",
       type: "text",
-      name:"desc"
-    },    
-    
+      name: "desc",
+    },
   ];
   const handleChange = (event) => {
     const name = event.target.name;
@@ -58,16 +59,19 @@ console.log(today,"todayyyyyyyyyyyyyyy")
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(userdata,"dsdsdsasasasasdes")  
+    console.log(userdata, "dsdsdsasasasasdes");
     axios
       .post(`http://localhost:80/Flipr/api/tasks/${id}`, userdata)
       .then(function (response) {
-      console.log(response,"dsdsdsdes")  
+        console.log(response, "dsdsdsdes");
+        if (response.status == 200) {
+          alert("Task added Successfully ");
+          navigate("/employee");
+        } else {
+          alert("Error! Check Task details");
+        }
       })
-      .catch(function (error) {
-     
-       
-      });
+      .catch(function (error) {});
   };
 
   return (
@@ -84,19 +88,29 @@ console.log(today,"todayyyyyyyyyyyyyyy")
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input type={input.type}  onChange={handleChange} name={input.name} placeholder={input.placeholder} max={input.max} />
+                  <input
+                    type={input.type}
+                    onChange={handleChange}
+                    name={input.name}
+                    placeholder={input.placeholder}
+                    max={input.max}
+                  />
                 </div>
               ))}
               <div className="formInput">
                 <label>Type</label>
-                <select id="cars" name="type"  onChange={handleChange}>
-                  <option value="work" selected>Work</option>
+                <select id="cars" name="type" onChange={handleChange}>
+                  <option value="work" selected>
+                    Work
+                  </option>
                   <option value="break"> Break</option>
                   <option value="meeting"> Meeting</option>
                 </select>
               </div>
               <div className="formInput">
-                <button type="submit" style={{ float: "right" }}>Add Task</button>
+                <button type="submit" style={{ float: "right" }}>
+                  Add Task
+                </button>
               </div>
             </form>
           </div>

@@ -39,7 +39,7 @@ function getUsers() {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/Viewprofile" state={{id:params.row.id}} style={{ textDecoration: "none" }}>
+            <Link to="/admin/allemployees/viewprofile" state={{id:params.row.id}} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
               {/* <div style={{display:"none"}}><Single id={params.row.id}/></div> */}
             </Link>
@@ -58,7 +58,7 @@ function getUsers() {
     <div className="datatable">
       <div className="datatableTitle">
        Your Tasks
-        <Link to="/NewUser" className="link">
+        <Link to="/admin/addemployee" className="link">
           Add New
         </Link>
       </div>

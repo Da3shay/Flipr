@@ -16,13 +16,13 @@ function App() {
      
       {/* 👇️ Wrap your Route components in a Routes component */}
       <Routes>
-        <Route path="/Admin" element={<Admin/>} />
+        <Route path="/admin" element={<Admin/>} />
         <Route path="/" element={<Home/>} />
         <Route path="/Profile" element={<Profile/>} />
-        <Route path="/Users" element={<Users/>} />
-        <Route path="Viewprofile"  element={<Single/>} />
-        <Route path="Newuser" element={<Newuser/>} />
-        <Route path="/Employee" element={<Employeedashboard/>} />
+        <Route path="/admin/allemployees" element={<Users/>} />
+        <Route path="admin/allemployees/viewprofile"  element={<Single/>} />
+        <Route path="admin/addemployee" element={<Newuser/>} />
+        <Route path="/employee" element={<Employeedashboard/>} />
         <Route path="/employee/tasks" element={<Alltask/>} />
         <Route path="/employee/addtasks" element={<Employeetask/>} />
         

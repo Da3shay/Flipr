@@ -47,7 +47,7 @@ const Widget = ( props ) => {
       break;
     case "order":
       data = {
-        title: "Average work hours",
+        title: "Average working time (in mins)",
         isMoney: false,
         link: "",
       
@@ -64,7 +64,7 @@ const Widget = ( props ) => {
       break;
     case "earning":
       data = {
-        title: "Average meeting hours ",
+        title: "Average meeting time (in mins) ",
         isMoney: true,
         link: "",
         
@@ -79,7 +79,7 @@ const Widget = ( props ) => {
       break;
     case "balance":
       data = {
-        title:"Average break hours " ,
+        title:"Average break time (in mins) " ,
         isMoney: true,
         link: "",
         

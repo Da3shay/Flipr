@@ -28,13 +28,13 @@ export default function Home() {
           localStorage.setItem('id', response.data.id);
         if(response.data.type==="admin")
         {
-          navigate("/Admin");
+          navigate("/admin");
          
 
         }
         else if(response.data.type==="employee")
         {
-          navigate("/Employee");
+          navigate("/employee");
         
         }
      

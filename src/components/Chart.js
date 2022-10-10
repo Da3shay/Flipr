@@ -8,9 +8,9 @@ export default class Example extends PureComponent {
   render(props) {
    
     const data01 = [
-      { name: 'Work Hours', value: Math.trunc(this.props.piedata[0]) },
-      { name: 'Break Hours', value: Math.trunc(this.props.piedata[1]) },
-      { name: 'Meeting Hours', value: Math.trunc(this.props.piedata[2]) },
+      { name: 'Work Time', value: Math.trunc(this.props.piedata[0]) },
+      { name: 'Break Time', value: Math.trunc(this.props.piedata[1]) },
+      { name: 'Meeting Time', value: Math.trunc(this.props.piedata[2]) },
     
     ];
     console.log(Math.trunc(this.props.piedata[0]),"piedata  ")
