@@ -40,18 +40,7 @@ export default function Newuser() {
       label: "Description",
       type: "text",
       name:"desc"
-    },
-    {
-        id: 5,
-        type: "hidden",
-        name:"emp_id",
-        value:id
-      },
-      {
-        id: 6,
-        type: "hidden",
-        
-      },    
+    },    
     
   ];
   const handleChange = (event) => {
@@ -63,7 +52,7 @@ export default function Newuser() {
     event.preventDefault();
     console.log(userdata,"dsdsdsasasasasdes")  
     axios
-      .post("http://localhost:80/Flipr/api/tasks", userdata)
+      .post(`http://localhost:80/Flipr/api/tasks/${id}`, userdata)
       .then(function (response) {
       console.log(response,"dsdsdsdes")  
       })

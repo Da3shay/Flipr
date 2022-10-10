@@ -32,14 +32,12 @@ switch($method) {
             $user = json_decode( file_get_contents('php://input') );
             $sql = "INSERT INTO tasks(id, emp_id, type, description, start_time, duration, date) VALUES(null, :emp_id, :type, :desc, :start, :duration, :date)";
             $stmt = $conn->prepare($sql);
-            $date = date('Y-m-d');
-            $stmt->bindParam(':type', $user->type);
             $stmt->bindParam(':emp_id', $user->emp_id);
+            $stmt->bindParam(':type', $user->type);
             $stmt->bindParam(':desc', $user->desc);
             $stmt->bindParam(':start', $user->start);
             $stmt->bindParam(':duration', $user->duration);
-            $stmt->bindParam(':date', $date);
-    
+            $stmt->bindParam(':date', $user->date);
             if($stmt->execute()) {
                 $response = ['status' => 1, 'message' => 'Record created successfully.'];
             } else {
@@ -62,5 +60,5 @@ switch($method) {
                 echo json_encode($response);
                 break;
         }
-
 ?>
+    
