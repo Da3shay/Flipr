@@ -41,7 +41,7 @@ const logout=()=>{
           </Link>
           {/* <p className="title">USEFUL</p> */}
           <li>
-          <Link to="/=" style={{ textDecoration: "none" }}>
+          <Link to="/employee/addtasks" style={{ textDecoration: "none" }}>
             <InsertChartIcon className="icon" />
             <span>Add Tasks</span>
             </Link>

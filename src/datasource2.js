@@ -1,38 +1,38 @@
 export const userColumns = [
     
     {
-      field: "name",
+      field: "type",
       headerName: "Type",
-      width: 240,
+      width: 100,
       renderCell: (params) => {
         return (
           <div className="cellWithImg">
-            {params.row.name}
+            {params.row.type}
           </div>
         );
       },
     },
     {
-      field: "email",
+      field: "description",
       headerName: "Description",
-      width: 230,
+      width: 630,
     },
   
  
     {
-        field: "Start Time",
+        field: "start_time",
         headerName: "Start-Time",
-        width: 210,
+        width: 110,
       },
       {
-        field: "Duration",
+        field: "duration",
         headerName: "Duration",
-        width: 210,
+        width: 110,
       },
       {
-        field: "department",
-        headerName: "Date",
-        width: 210,
+        field: "date",
+        headerName: "Date", 
+        width: 110,
       },
      
     
