@@ -1,11 +1,11 @@
 import React from 'react'
-import Sidebar  from './components/Sidebar';
-import Navbar from './components/Navbar';
+import Sidebar from '../components/Sidebar';
+import Navbar from '../components/Navbar';
 import "./Admin.scss";
-import Widget from './components/Widget';
-import Featured from './components/Featured';
-import Chart from './components/Chart';
-import Table from './components/Table';
+import Widget from '../components/Widget';
+import Featured from '../components/Featured';
+import Chart from '../components/Chart';
+import Table from '../components/Table';
 import axios from "axios";
 import { useState,useEffect } from "react";
 

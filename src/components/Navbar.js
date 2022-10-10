@@ -1,13 +1,25 @@
 import * as React from "react";
 import "./Navbar.scss";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Link } from "react-router-dom";
-const logout=()=>{
-  localStorage.removeItem('id');
-}
+import { Link,useNavigate } from "react-router-dom";
+
 
 
 const Navbar = () => {
+  let navigate = useNavigate();
+  const logout=()=>{
+    const confirmBox = window.confirm(
+      "Are you sure you want to log out?"
+    )
+    if (confirmBox === true) {
+      
+    {
+      navigate('/');
+      localStorage.removeItem('id');   
+      }
+  }
+  }
+
   return (
     <div className="navbar">
       <div className="wrapper">
@@ -26,7 +38,7 @@ const Navbar = () => {
             </button>
             <div class="dropdown-content">
               <a href="#">   <Link to="/Profile" style={{ textDecoration: "none"}}  className="linkk">Profile </Link></a>
-               <a href="#" >  <Link to="/" style={{ textDecoration: "none"}}  className="linkk" onClick={logout}> Log Out </Link></a> 
+               <a href="#" >  <div to style={{ textDecoration: "none"}}  className="linkkk" onClick={logout}> Log Out </div></a> 
             </div>
           </div>
 

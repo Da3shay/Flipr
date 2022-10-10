@@ -1,7 +1,7 @@
 import React from 'react'
-import Sidebar from './components/Sidebar'
-import Navbar from './components/Navbar'
-import Datatable from './components/Datatable'
+import Sidebar from '../components/Sidebar'
+import Navbar from '../components/Navbar'
+import Datatable from '../components/Datatable'
 
 
 export default function Users() {

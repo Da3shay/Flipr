@@ -1,66 +1,55 @@
 import React from "react";
-import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
-import "./newuser.scss";
+import Sidebar2 from "../components/Sidebar2";
+import Navbar from "../components/Navbar";
+import "./employeetask.scss";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axios from "axios";
 
 export default function Newuser() {
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();
-  
-  today = yyyy + '-' + mm + '-' + dd;
   const [file, setFile] = useState("");
+  const id = parseInt(localStorage.getItem("id"));
  const [userdata, setuserdata] = useState([]);
+ var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
 
-  const title = "Add new Employee ";
+today = yyyy + '-' + mm + '-' + dd;
+console.log(today,"todayyyyyyyyyyyyyyy")
+
+  const title = "Add New Task ";
   const inputs = [
     {
       id: 1,
-      label: "Name ",
-      type: "text",
-      placeholder: "John Doe",
-      name:"name"
-    },
-    {
-      id: 2,
-      label: "Email",
-      type: "email",
-      placeholder: "johndoe@gmail.com",
-      name:"email"
-    },
-    {
-      id: 3,
-      label: "Joining Date",
+      label: "Start Date ",
       type: "date",
-      id: "datePickerId",
-      placeholder: "",
-      name:"join_date",
+      placeholder: "John Doe",
+      name:"date",
       max:today
     },
     {
-      id: 4,
-      label: "Phone",
-      type: "tel",
-      placeholder: "+1 234 567 89",
-      name:"contact"
+      id: 2,
+      label: "Start Time",
+      type: "time",
+      placeholder: "johndoe@gmail.com",
+      name:"start"
     },
     {
-      id: 5,
-      label: "Password",
-      type: "password",
-      name:"password"
-    },
-    {
-      id: 6,
-      label: "Department",
+      id: 3,
+      label: "Duration",
       type: "text",
-      placeholder: "Accounts",
-      name:"department"
+      id: "datePickerId",
+      placeholder: "",
+      name:"duration"
     },
+    {
+      id: 4,
+      label: "Description",
+      type: "text",
+      name:"desc"
+    },    
+    
   ];
   const handleChange = (event) => {
     const name = event.target.name;
@@ -71,7 +60,7 @@ export default function Newuser() {
     event.preventDefault();
     console.log(userdata,"dsdsdsasasasasdes")  
     axios
-      .post("http://localhost:80/Flipr/api/users", userdata)
+      .post(`http://localhost:80/Flipr/api/tasks/${id}`, userdata)
       .then(function (response) {
       console.log(response,"dsdsdsdes")  
       })
@@ -83,7 +72,7 @@ export default function Newuser() {
 
   return (
     <div className="new">
-      <Sidebar />
+      <Sidebar2 />
       <div className="newContainer">
         <Navbar />
         <div className="top">
@@ -95,18 +84,19 @@ export default function Newuser() {
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input type={input.type}  onChange={handleChange} max={input.max} name={input.name} placeholder={input.placeholder} />
+                  <input type={input.type}  onChange={handleChange} name={input.name} placeholder={input.placeholder} max={input.max} />
                 </div>
               ))}
               <div className="formInput">
                 <label>Type</label>
                 <select id="cars" name="type"  onChange={handleChange}>
-                  <option value="admin" selected>Admin</option>
-                  <option value="employee"> Employee</option>
+                  <option value="work" selected>Work</option>
+                  <option value="break"> Break</option>
+                  <option value="meeting"> Meeting</option>
                 </select>
               </div>
               <div className="formInput">
-                <button type="submit" style={{ float: "right" }}>Add User</button>
+                <button type="submit" style={{ float: "right" }}>Add Task</button>
               </div>
             </form>
           </div>

@@ -5,12 +5,23 @@ import InsertChartIcon from "@mui/icons-material/InsertChart";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Egresslogo } from "../Assets/image";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
-const logout=()=>{
-  localStorage.removeItem('id');
-}
+  let navigate = useNavigate();
+  const logout=()=>{
+  
+    const confirmBox = window.confirm(
+      "Are you sure you want to log out?"
+    )
+    if (confirmBox === true) {
+      
+    {
+      navigate('/');
+      localStorage.removeItem('id');   
+      }
+  }
+  }
 
   return (
     <div className="sidebar">
@@ -51,12 +62,12 @@ const logout=()=>{
 
 
           {/* <p className="title">USER</p> */}
-          <Link to="/" style={{ textDecoration: "none" }}>
+          {/* <Link to="/" style={{ textDecoration: "none" }}> */}
           <li onClick={logout}>
             <ExitToAppIcon className="icon" />
             <span >Logout</span>
           </li>
-          </Link>
+          {/* </Link> */}
         </ul>
       </div>
     </div>

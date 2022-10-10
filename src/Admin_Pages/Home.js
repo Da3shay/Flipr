@@ -1,12 +1,11 @@
 import React from "react";
 import "./Home.scss";
-import { Egress, gmail, lock } from "./Assets/image";
-import Admin from "./Admin";
+import { Egress, gmail, lock } from "../Assets/image";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { tempdata } from "./tempdata";
+
 
 
 export default function Home() {

@@ -1,7 +1,7 @@
 import "./alltask.scss"
-import Sidebar2 from "./components/Sidebar2"
-import Navbar from "./components/Navbar"
-import Tasktable from "./components/Tasktable"
+import Sidebar2 from "../components/Sidebar2"
+import Navbar from "../components/Navbar"
+import Tasktable from "../components/Tasktable"
 
 const List = () => {
   return (

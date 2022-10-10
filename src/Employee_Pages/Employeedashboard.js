@@ -1,14 +1,14 @@
-import "./single.scss";
-import Sidebar2 from "./components/Sidebar2";
-import Navbar from "./components/Navbar";
-import Chart from "./components/Chart";
-import Table from "./components/Table";
-import Chartprofileone from "./components/Chartprofileone"
-import Stackedbarchart from "./components/Stackedbarchart"
+import "./Employeedashboard.scss";
+import Sidebar2 from "../components/Sidebar2";
+import Navbar from "../components/Navbar";
+import Chart from "../components/Chart";
+import Table from "../components/Table";
+import Chartprofileone from "../components/Chartprofileone"
+import Stackedbarchart from "../components/Stackedbarchart"
 import {useLocation } from "react-router-dom";
 import {useEffect,useState} from "react";
 import axios from "axios";
-import Chartprofilethree from "./components/Chartprofilethree";
+import Chartprofilethree from "../components/Chartprofilethree";
 
 const Single = () => {
   const profile= parseInt(localStorage.getItem('id'));

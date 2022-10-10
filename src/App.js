@@ -1,12 +1,12 @@
-import Home from './Home';
-import Admin from './Admin';
+import Home from './Admin_Pages/Home';
+import Admin from './Admin_Pages/Admin';
 import Profile from './Profile';
-import Users from './Users';
+import Users from './Admin_Pages/Users';
 import Single from './Single';
-import Newuser from './Newuser';
-import Employeedashboard from './Employeedashboard';
-import Alltask from './Alltask'
-import Employeetask from './Employeetask'
+import Newuser from './Admin_Pages/Newuser';
+import Employeedashboard from './Employee_Pages/Employeedashboard';
+import Alltask from './Employee_Pages/Alltask'
+import Employeetask from './Employee_Pages/Employeetask'
 import { BrowserRouter as Router, Routes , Route, Link } from "react-router-dom";
 
 function App() {
