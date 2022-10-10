@@ -19,7 +19,7 @@ switch($method) {
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':id', $path[4]);
             $stmt->execute();
-            $tasks = $stmt->fetch(PDO::FETCH_ASSOC);
+            $tasks = $stmt->fetchAll(PDO::FETCH_ASSOC);
         } else {
             $stmt = $conn->prepare($sql);
             $stmt->execute();
