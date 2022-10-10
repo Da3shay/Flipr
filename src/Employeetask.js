@@ -10,6 +10,13 @@ export default function Newuser() {
   const [file, setFile] = useState("");
   const id = parseInt(localStorage.getItem("id"));
  const [userdata, setuserdata] = useState([]);
+ var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd;
+console.log(today,"todayyyyyyyyyyyyyyy")
 
   const title = "Add New Task ";
   const inputs = [
@@ -18,7 +25,8 @@ export default function Newuser() {
       label: "Start Date ",
       type: "date",
       placeholder: "John Doe",
-      name:"date"
+      name:"date",
+      max:today
     },
     {
       id: 2,
@@ -76,7 +84,7 @@ export default function Newuser() {
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input type={input.type}  onChange={handleChange} name={input.name} placeholder={input.placeholder} />
+                  <input type={input.type}  onChange={handleChange} name={input.name} placeholder={input.placeholder} max={input.max} />
                 </div>
               ))}
               <div className="formInput">

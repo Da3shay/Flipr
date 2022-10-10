@@ -7,6 +7,12 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function Newuser() {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  
+  today = yyyy + '-' + mm + '-' + dd;
   const [file, setFile] = useState("");
  const [userdata, setuserdata] = useState([]);
 
@@ -32,7 +38,8 @@ export default function Newuser() {
       type: "date",
       id: "datePickerId",
       placeholder: "",
-      name:"join_date"
+      name:"join_date",
+      max:today
     },
     {
       id: 4,
@@ -88,7 +95,7 @@ export default function Newuser() {
               {inputs.map((input) => (
                 <div className="formInput" key={input.id}>
                   <label>{input.label}</label>
-                  <input type={input.type}  onChange={handleChange} name={input.name} placeholder={input.placeholder} />
+                  <input type={input.type}  onChange={handleChange} max={input.max} name={input.name} placeholder={input.placeholder} />
                 </div>
               ))}
               <div className="formInput">
