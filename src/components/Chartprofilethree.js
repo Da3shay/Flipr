@@ -5,19 +5,34 @@ import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from "recharts";
 
 export default function Chartprofilethree(props) {
   
-    console.log(props.userdataa, "sasasaasaaaaaaaaaaaaaa");
+    // console.log(props.userdataa[0], "sasasaasaaaaaaaaaaaaaa");
     const data01 = [
-        { name: "Work", value: 400 },
-        { name: "Break", value: 300 },
-        { name: "Meeting", value: 300 },
+        { name: "Work", value: parseInt(props.userdataa?.[0].work) },
+        { name: "Break", value: parseInt(props.userdataa?.[0].break) },
+        { name: "Meeting", value: parseInt(props.userdataa?.[0].meeting) },
       ];
       
       const data02 = [
-        { name: "Work", value: 2400 },
-        { name: "Break", value: 4567 },
-        { name: "Meeting", value: 1398 },
+        { name: "Work", value: parseInt(props.userdataa?.[1].work) },
+        { name: "Break", value: parseInt(props.userdataa?.[1].break) },
+        { name: "Meeting", value: parseInt(props.userdataa?.[1].meeting) },
    
       ];
+    // var u1w=props.userdataa?.[1].work ;
+    // const data01 = [
+    //   { name: "Work", value:130 },
+    //   { name: "Break", value: 30},
+    //   { name: "Meeting", value: 50},
+    // ];
+    // console.log(u1w,"u1wu1wu1wu1w");
+    // const data02 = [
+    //   { name: "Work", value:10 },
+    //   { name: "Break", value:40 },
+    //   { name: "Meeting", value: 10 },
+ 
+    // ];
+  
+    
   
   return (
     <ResponsiveContainer width="100%" height="100%">

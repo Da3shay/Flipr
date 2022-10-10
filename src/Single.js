@@ -15,17 +15,7 @@ const location=useLocation();
 const profile=location.state;
 const [users, setUsers] = useState([]);
 const [userdataa, setuserdataa] = useState();
-const trey ={
-  id: 2,
-  type: "admin",
-  name:"ssshrey",
-  email:"s@g.com",
-  contact:"124",
-  department:"sweeper",
-  password:"sdsds",
-  status:"active",
-  join_date:"2022-10-08"
-};
+
 //  userdataa;
 
 useEffect(() => {
@@ -99,14 +89,17 @@ function getdata() {
           </div>
          
           <div className="right">
+         
             <Chartprofilethree userdataa={userdataa} />
-            <div>Todays Task</div>
+            <div style={{position:"absolute", left:"100px",bottom:"50px"}}>Today's Performance</div>
+            <div style={{position:"absolute", left:"570px",bottom:"50px"}}>Yesterday's Performance</div>
+            
           </div>
        
         </div>
 
         <div className="bottom">
-        <h1 className="title">Last Transactions</h1>
+        <h1 className="title">Weekly Performance</h1>
           <Stackedbarchart userdataa={userdataa}/>
         </div>
       </div>

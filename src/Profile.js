@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import axios from "axios";
 import { useState,useEffect } from "react";
+import Sidebar2 from './components/Sidebar2'
 
 export default function Profile() {
   const [users, setUsers] = useState([]);
@@ -15,7 +16,7 @@ export default function Profile() {
   }, []);
   function getUsers() {
       axios.get(`http://localhost:80/Flipr/api/users/${id}`).then(function(response) {
-    
+
           setUsers(response.data);
       });
   }
@@ -24,7 +25,7 @@ export default function Profile() {
   return (
     <div>
     <div className="Profile">
-    <Sidebar />
+    {users.type=="admin"?<Sidebar/>:<Sidebar2/>}
     <div className="Profilecontainer">
       <Navbar />
       <div className="top">
