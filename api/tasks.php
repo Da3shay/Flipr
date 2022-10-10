@@ -29,10 +29,12 @@ switch($method) {
         echo json_encode($tasks);
         break;
         case "POST":
+            $path = explode('/', $_SERVER['REQUEST_URI']);
+            $id=$path[4];
             $user = json_decode( file_get_contents('php://input') );
             $sql = "INSERT INTO tasks(id, emp_id, type, description, start_time, duration, date) VALUES(null, :emp_id, :type, :desc, :start, :duration, :date)";
             $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':emp_id', $user->emp_id);
+            $stmt->bindParam(':emp_id', $id);
             $stmt->bindParam(':type', $user->type);
             $stmt->bindParam(':desc', $user->desc);
             $stmt->bindParam(':start', $user->start);
