@@ -1,35 +1,15 @@
-import "./datatable.scss";
+import "./tasktable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../datatablesource";
+import { userColumns, userRows } from "../datasource2";
 import { Link } from "react-router-dom";
-import { useState,useEffect } from "react";
-import axios from "axios";
-import Single from "../Single";
+import { useState } from "react";
 
 const Datatable = () => {
-  // const [data, setData] = useState(userRows);
-  const [data, setdata] = useState([]);
+  const [data, setData] = useState(userRows);
 
   const handleDelete = (id) => {
-  
-    axios.delete(`http://localhost:80/Flipr/api/users/${id}`).then(function(response){
-      console.log(response.data);
-      getUsers();
-  });
-
-    
+    setData(data.filter((item) => item.id !== id));
   };
-
-  useEffect(() => {
-    getUsers();
-}, []);
-function getUsers() {
-    axios.get(`http://localhost:80/Flipr/api/users`).then(function(response) {
-        console.log(response.data,"Daljsya");
-        setdata(response.data);
-    });
-}
-
 
   const actionColumn = [
     {
@@ -39,9 +19,8 @@ function getUsers() {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/Viewprofile" state={{id:params.row.id}} style={{ textDecoration: "none" }}>
+            <Link to="/users/test" style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
-              {/* <div style={{display:"none"}}><Single id={params.row.id}/></div> */}
             </Link>
             <div
               className="deleteButton"
@@ -57,8 +36,8 @@ function getUsers() {
   return (
     <div className="datatable">
       <div className="datatableTitle">
-       Your Tasks
-        <Link to="/NewUser" className="link">
+        Add New User
+        <Link to="/users/new" className="link">
           Add New
         </Link>
       </div>

@@ -50,13 +50,14 @@ export default class Example extends PureComponent {
   static demoUrl = 'https://codesandbox.io/s/stacked-bar-chart-s47i2';
 
   render(props) {
-    console.log(this.props,"dsdsds")
+    
+
     return (
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
           height={300}
-          data={data}
+          data={this.props.userdataa}
           margin={{
             top: 20,
             right: 30,
@@ -65,13 +66,13 @@ export default class Example extends PureComponent {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="label" />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="Break" stackId="a" fill="#8884d8" />
-          <Bar dataKey="Meeting" stackId="a" fill="#82ca9d" />
-          <Bar dataKey="Work" stackId="a" fill="#000" />
+          <Bar dataKey="break" stackId="a" fill="#8884d8" />
+          <Bar dataKey="meeting" stackId="a" fill="#82ca9d" />
+          <Bar dataKey="work" stackId="a" fill="#000" />
         </BarChart>
       </ResponsiveContainer>
     );

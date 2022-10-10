@@ -15,7 +15,7 @@ const logout=()=>{
   return (
     <div className="sidebar">
       <div className="top">
-        <Link to="/Admin" style={{ textDecoration: "none" }}>
+        <Link to="/Employee" style={{ textDecoration: "none" }}>
 
          <span><img className="logo" src={Egresslogo}/></span> 
         </Link>
@@ -25,7 +25,7 @@ const logout=()=>{
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
-          <Link to="/Admin" style={{ textDecoration: "none" }}>
+          <Link to="/Employee" style={{ textDecoration: "none" }}>
           <li>
             <DashboardIcon className="icon" />
             <span>Dashboard</span>
@@ -33,7 +33,7 @@ const logout=()=>{
           </Link>
           
           <p className="title">ACTIONS</p>
-          <Link to="/Users" style={{ textDecoration: "none" }}>
+          <Link to="/employee/tasks" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>My tasks</span>
@@ -41,7 +41,7 @@ const logout=()=>{
           </Link>
           {/* <p className="title">USEFUL</p> */}
           <li>
-          <Link to="/Newuser" style={{ textDecoration: "none" }}>
+          <Link to="/=" style={{ textDecoration: "none" }}>
             <InsertChartIcon className="icon" />
             <span>Add Tasks</span>
             </Link>
