@@ -47,6 +47,22 @@ switch($method) {
             }
             echo json_encode($response);
             break;
+            case "DELETE":
+                $sql = "DELETE FROM tasks WHERE id = :id";
+                $path = explode('/', $_SERVER['REQUEST_URI']);
+        
+                $stmt = $conn->prepare($sql);
+                $stmt->bindParam(':id', $path[4]);
+        
+                if($stmt->execute()) {
+                    $response = ['status' => 1, 'message' => 'Record deleted successfully.'];
+                } else {
+                    $response = ['status' => 0, 'message' => 'Failed to delete record.'];
+                }
+                echo json_encode($response);
+                break;
+        }
+?>
     
 }
 ?>
